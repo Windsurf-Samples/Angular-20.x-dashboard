@@ -1,0 +1,17 @@
+.dashboard {
+  padding: 20px;
+}
+
+.widgets-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.widget {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  min-width: 200px;
+}
