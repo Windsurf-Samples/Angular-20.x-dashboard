@@ -6,6 +6,16 @@ export interface Widget {
   attrs?: Record<string, unknown>;
   storageHash?: string;
   framework?: 'angularjs' | 'angular';
+  enableVerticalResize?: boolean;
+  containerStyle: Record<string, string>;
+  contentStyle: Record<string, string>;
+  directive?: string;
+  templateUrl?: string;
+  template?: string;
+  editingTitle?: boolean;
+  dataModelOptions?: Record<string, unknown>;
+  widthUnits?: string;
+  resizeTimeout?: number;
 }
 
 export interface WidgetDefinition {
@@ -16,4 +26,5 @@ export interface WidgetDefinition {
   template?: string;
   component?: unknown;
   framework: 'angularjs' | 'angular';
+  storageHash?: string;
 }
