@@ -1,0 +1,29 @@
+<div class="dashboard">
+  <div class="btn-toolbar" ng-if="options.widgetButtons">
+    <div class="btn-group" ng-repeat="widgetDef in options.widgetDefinitions">
+      <button type="button" class="btn btn-primary btn-sm" ng-click="addWidget(widgetDef)">
+        Add {{ widgetDef.title || widgetDef.name }}
+      </button>
+    </div>
+  </div>
+  
+  <div class="dashboard-widget-area">
+    <div class="widget-container" ng-repeat="widget in widgets" ng-style="widget.containerStyle">
+      <div class="widget panel panel-default">
+        <div class="widget-header panel-heading">
+          <h3 class="panel-title">
+            {{ widget.title }}
+            <span class="widget-icons pull-right">
+              <a href="#" ng-click="removeWidget(widget)" class="glyphicon glyphicon-remove" ng-if="!options.hideWidgetClose"></a>
+            </span>
+          </h3>
+        </div>
+        <div class="widget-content panel-body" ng-style="widget.contentStyle">
+          <div ng-if="widget.directive" compile="widget.directive" widget-data="widget"></div>
+          <div ng-if="widget.templateUrl" ng-include="widget.templateUrl"></div>
+          <div ng-if="widget.template" ng-bind-html="widget.template"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
